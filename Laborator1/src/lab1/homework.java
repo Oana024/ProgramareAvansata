@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class homework {
 
     //build a random word from an alphabet
-    static String getRandomString(String[] alphabet, int n){
+    String getRandomString(String[] alphabet, int n){
         StringBuilder randomWord = new StringBuilder(n);
 
         for (int i = 0; i < n; i++) {
@@ -17,7 +17,7 @@ public class homework {
     }
 
     //verify if the words have a letter in common
-    static Boolean commonLetter(String firstString, String secondString){
+    Boolean commonLetter(String firstString, String secondString){
         for(int i = 0; i < firstString.length(); i++)
             for(int j = 0; j < secondString.length(); j++)
                 if(firstString.charAt(i) == secondString.charAt(j))
@@ -27,6 +27,7 @@ public class homework {
 
 
     public static void main(String[] args){
+        homework Homework = new homework();
         long startTime = System.nanoTime();
         //validate the arguments
         if(args.length < 3)
@@ -47,7 +48,7 @@ public class homework {
             //create an array of random words generated from the alphabet
             cnt = 0;
             while(cnt < n){
-                words[cnt] = getRandomString(alphabet, p);
+                words[cnt] = Homework.getRandomString(alphabet, p);
                 cnt ++;
             }
 
@@ -62,11 +63,11 @@ public class homework {
             ArrayList<ArrayList<String>> neighbors = new ArrayList<>();
 
             //add data in matrix and array
-           for(int i = 0; i < n; i++) {
+            for(int i = 0; i < n; i++) {
                 ArrayList<String> aux = new ArrayList<>();
                 for (int j = 0; j < n; j++) {
                     if(i != j){
-                        adjacency[i][j] = commonLetter(words[i], words[j]);
+                        adjacency[i][j] = Homework.commonLetter(words[i], words[j]);
                         if (adjacency[i][j]) {
                             aux.add(words[j]);
                         }
