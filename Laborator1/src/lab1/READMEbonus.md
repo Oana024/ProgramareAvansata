@@ -1,0 +1,2 @@
+Pentru fiecare cuvant generat fac DFS plecand din acel nod si daca pe parcursul DFS-ului pot ajunge inapoi in cuvantul initial si in solutie am minim 3 cuvinte, inseamna ca am gasit
+un circuit (subset de cuvinte W1,W2,..,Wk astfel incat W1 e vecin cu W2, ..., Wk e vecin cu W1) si il afisez. Variabila found devine true si nu mai caut alt circuit.
