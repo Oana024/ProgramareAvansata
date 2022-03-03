@@ -62,13 +62,17 @@ public class homework {
             ArrayList<ArrayList<String>> neighbors = new ArrayList<>();
 
             //add data in matrix and array
-            for(int i = 0; i < n; i++) {
+           for(int i = 0; i < n; i++) {
                 ArrayList<String> aux = new ArrayList<>();
                 for (int j = 0; j < n; j++) {
-                    adjacency[i][j] = commonLetter(words[i], words[j]);
-                    if (adjacency[i][j] && i != j) {
-                        aux.add(words[j]);
+                    if(i != j){
+                        adjacency[i][j] = commonLetter(words[i], words[j]);
+                        if (adjacency[i][j]) {
+                            aux.add(words[j]);
+                        }
                     }
+                    else
+                        adjacency[i][j] = false;
                 }
                 neighbors.add(aux);
             }
