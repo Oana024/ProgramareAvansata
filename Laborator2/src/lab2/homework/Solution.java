@@ -31,7 +31,15 @@ public class Solution {
     }
 
     public void print() {
-        for (int i = 0; i < events.length; i++)
-            System.out.println(events[i].getName() + " -> " + assignment[i].getName());
+        boolean solved = true;
+        for (int i = 0; i < events.length && solved; i++)
+            if(assignment[i] == null) {
+                System.out.println("Nu am reusit sa gasesc o atribuire");
+                solved = false;
+            }
+
+        if(solved == true)
+            for (int i = 0; i < events.length; i++)
+                System.out.println(events[i].getName() + " -> " + assignment[i].getName());
     }
 }
