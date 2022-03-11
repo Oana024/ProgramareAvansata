@@ -1,0 +1,3 @@
+Am creat clasele *Network*, *Node*, *Computer*, *Router*, *Switch*. In clasa *Network* vom gasi o lista de noduri. Clasa *Node* va fi abstracta, iar clasele *Computer*, *Router* si *Switch* vor mosteni clasa *Node*.
+Am creat interfetele **Identifiable** si **Storage**. Interfata **Identifiable** va fi implementata de *Computer* si *Router*, iar **Storage** va fi implementata doar de *Computer*.
+Nodurile vor fi afisate in ordine lexicografica a numelui.
