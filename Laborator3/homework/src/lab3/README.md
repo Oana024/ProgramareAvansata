@@ -1,0 +1,11 @@
+Am creat Map-ul *cost*, unde cheia este nodul, iar valoarea este costul de la nodul curent la nodul care reprezinta cheia. Graful costurilor este unul neorientat, daca costul de la nodul v1 la nodul v2 este 10, atunci si costul de la nodul v2 la nodul v1 este tot 10.
+
+In interfata *Storage* am adaugat o metoda default getStorageCapacity(storageUnit unit), paramentrul fiind de tip enum si reprezinta in ce unitate de masura vom transforma capacitatea de stocare: megabyte, kilobyte sau byte. Exista si metoda getStorageCapacity() fara paramentru care returneaza capacitatea in gigabytes.
+
+Metoda *printIdentifiable()* va crea si va afisa o lista de noduri *identifiableNodes* care va contine doar nodurile de tip *identifiable*, adica cele care sunt identificate dupa o adresa IP, in cazul nostru Computer si Router. Vor fi parcurse toate nodurile si vor fi adaugate doar cele care sunt de tip "Computer" sau "Router". Pentru a afla tipul unui nod am creat o metoda abstracta *getType()* care este implementata in fiecare categorie de nod si returneaza tipul nodului (Router, Switch, Computer).
+Dupa ce am adaugat nodurile in lista, aceasta va fi sortata dupa adresa, iar apoi va fi afisata.
+
+Pentru a putea afla costurile minime de la un nod *identifiable* la altul am folosit algoritmul **Floyd-Warshall**. Dar inainte de a aplica algorimul am transformat lista de noduri intr-o matrice de adiacenta in metoda *getAdjacencyMatrix()*. 
+Stim ca fiecare nod are un Map in care sunt salvate nodurile adiacente si costurile pentru a ajunge la acele noduri. Astfel, pentru fiecare nod **_i_**, voi parcurge Map-ul sau pentru a afla care sunt nodurile adiacente lui **_i_**. Pentru fiecare nod **_node_** din Map, gasesc pozitia **_j_** pe care se afla acesta in lista. 
+Cand gasesc pozitia nodului, adaug in matricea de adiacenta pe linia nodului **_i_** si coloana **_j_**, costul, care este valoarea din Map.
+Astfel, dupa ce am aflat matricea de adiacenta o folosesc in algoritmul **Floyd-Warshall** si aflu costurile minime pentru fiecare nod spre fiecare alt nod.
