@@ -1,0 +1,3 @@
+Am creat clasa abstracta *Command*. Am creat clasele *LoadCommand* (implementeaza comanda load care incarca o instanta a catalogului), *AddComand*(implementeaza comanda save care salveaza o instanta a catalogului), *ListCommand*(afiseaza o reprezentare textuala a catalogului folosind writerWithDefaultPrettyPrinter().writeValueAsString care afiseaza continutul fisierului JSON), *ViewCommand*(deschide un fisier de la un path dat ca argument) si *ReportCommand*(creaza si deschide un fisier HTML. Acesta a fost creat folosind template engine-ul Velocity). Aceste clase mostenesc clasa abstracta *Command*.
+
+La final am am facut aplicatia sa fie un executabil de tip JAR care se gaseste in directorul \out\artifacts\Laborator5_jar din cadrul proiectului.

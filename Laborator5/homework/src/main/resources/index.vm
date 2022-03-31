@@ -1,0 +1,13 @@
+<html>
+<body>
+Name: $name
+Items:
+<ul>
+    #foreach($item in $items)
+        <li> $item.id </li>
+        <li> $item.title </li>
+        <li> $item.location </li>
+    #end
+</ul>
+</body>
+</html>
