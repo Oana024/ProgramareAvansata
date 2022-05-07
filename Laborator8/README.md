@@ -1,0 +1,4 @@
+Am folosit baza de date Postgres. Am realizat conexiunea la baza de data, dupa am creat tabelele *Countries* care stocheaza date despre o tara(id, name, code, continent), *Continents* care stocheaza date despre un continent(id, name) si *Cities* care stocheaza date despre un oras(id, name, country, capital, latitude, longitude).
+Am creat clasele DAO corespunzatoare fiecarui obiect(CountryDAO, CityDAO, ContinentDAO) in care sunt metodele care executa actiuni pe baza de date. Metoda *create* adauga o noua linie in baza de date, *findByName*, *findById* cauta in baza de date continentul/tara/orasul cu numele **name** sau id-ul **id**.
+Clasa *WordCapitals* contine metoda **add()** care va citi informatii dintr-un fisier de tip csv si va adauga aceste informatii in tabelul *City*.
+In clasa DistanceCalculator, metoda Calculator va calcula distanta dintre 2 orase identificate prin id.
