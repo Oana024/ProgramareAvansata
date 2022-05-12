@@ -1,5 +1,7 @@
 package classes.Object;
 
+import java.util.List;
+
 public class City {
     private int id;
     private int country_id;
@@ -7,6 +9,18 @@ public class City {
     private Boolean capital;
     private Float latitude;
     private Float longitude;
+
+    public City(String name, int country_id, Boolean capital, Float latitude, Float longitude) {
+        this.country_id = country_id;
+        this.name = name;
+        this.capital = capital;
+        this.latitude = latitude;
+        this.longitude = longitude;
+    }
+
+    public City() {
+
+    }
 
     public int getId() {
         return id;
@@ -54,5 +68,17 @@ public class City {
 
     public void setLongitude(Float longitude) {
         this.longitude = longitude;
+    }
+
+    @Override
+    public String toString() {
+        return "City{" +
+                "id=" + id +
+                ", country_id=" + country_id +
+                ", name='" + name + '\'' +
+                ", capital=" + capital +
+                ", latitude=" + latitude +
+                ", longitude=" + longitude +
+                '}';
     }
 }

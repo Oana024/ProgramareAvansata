@@ -9,15 +9,15 @@ import java.util.List;
 
 public class CityDAO {
 
-    public void create(String name, int id, Boolean capital, Float latitude, Float longitude) throws SQLException {
+    public void create(City city) throws SQLException {
         Connection con = Database.getConnection();
         try (PreparedStatement pstmt = con.prepareStatement(
                 "insert into cities (id_country, name, capital, latitude, longitude) values (?, ?, ?, ?, ?)")) {
-            pstmt.setInt(1, id);
-            pstmt.setString(2, name);
-            pstmt.setBoolean(3, capital);
-            pstmt.setFloat(4, latitude);
-            pstmt.setFloat(5, longitude);
+            pstmt.setInt(1, city.getCountry_id());
+            pstmt.setString(2, city.getName());
+            pstmt.setBoolean(3, city.getCapital());
+            pstmt.setFloat(4, city.getLatitude());
+            pstmt.setFloat(5, city.getLongitude());
             pstmt.executeUpdate();
         }
     }

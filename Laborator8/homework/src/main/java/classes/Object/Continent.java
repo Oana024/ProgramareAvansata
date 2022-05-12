@@ -4,6 +4,13 @@ public class Continent {
     private int id;
     private String name;
 
+    public Continent(String name) {
+        this.name = name;
+    }
+
+    public Continent() {
+    }
+
     public int getId() {
         return id;
     }

@@ -10,13 +10,13 @@ import java.util.List;
 
 public class CountryDAO {
 
-    public void create(String name, int id, String code) throws SQLException {
+    public void create(Country country) throws SQLException {
         Connection con = Database.getConnection();
         try (PreparedStatement pstmt = con.prepareStatement(
                 "insert into countries (name, id_continent, code) values (?, ?, ?)")) {
-            pstmt.setString(1, name);
-            pstmt.setInt(2, id);
-            pstmt.setString(3, code);
+            pstmt.setString(1, country.getName());
+            pstmt.setInt(2, country.getContinent_id());
+            pstmt.setString(3, country.getCode());
             pstmt.executeUpdate();
         }
     }

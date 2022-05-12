@@ -8,6 +8,15 @@ public class Country {
     private String name;
     private int continent_id;
 
+    public Country(String name, int continent_id, String code) {
+        this.code = code;
+        this.name = name;
+        this.continent_id = continent_id;
+    }
+
+    public Country() {
+    }
+
     public int getId() {
         return id;
     }
