@@ -13,15 +13,14 @@ import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
-@Table(name = "countries")
+@Table(name = "sisters")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Country.findAll", query = "SELECT c FROM Country c"),
-    @NamedQuery(name = "Country.findById", query = "SELECT c FROM Country c WHERE c.id = :id"),
-    @NamedQuery(name = "Country.findByName", query = "SELECT c FROM Country c WHERE c.name = :name"),
-    @NamedQuery(name = "Country.findByCode", query = "SELECT c FROM Country c WHERE c.code = :code"),
-    @NamedQuery(name = "Country.findByIdContinent", query = "SELECT c FROM Country c WHERE c.idContinent = :idContinent")})
-public class Country implements Serializable {
+    @NamedQuery(name = "Sister.findAll", query = "SELECT s FROM Sister s"),
+    @NamedQuery(name = "Sister.findById", query = "SELECT s FROM Sister s WHERE s.id = :id"),
+    @NamedQuery(name = "Sister.findByIdCity1", query = "SELECT s FROM Sister s WHERE s.idCity1 = :idCity1"),
+    @NamedQuery(name = "Sister.findByIdCity2", query = "SELECT s FROM Sister s WHERE s.idCity2 = :idCity2")})
+public class Sister implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -29,17 +28,15 @@ public class Country implements Serializable {
     @Basic(optional = false)
     @Column(name = "id")
     private Integer id;
-    @Column(name = "name")
-    private String name;
-    @Column(name = "code")
-    private String code;
-    @Column(name = "id_continent")
-    private Integer idContinent;
+    @Column(name = "id_city1")
+    private Integer idCity1;
+    @Column(name = "id_city2")
+    private Integer idCity2;
 
-    public Country() {
+    public Sister() {
     }
 
-    public Country(Integer id) {
+    public Sister(Integer id) {
         this.id = id;
     }
 
@@ -51,28 +48,20 @@ public class Country implements Serializable {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public Integer getIdCity1() {
+        return idCity1;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setIdCity1(Integer idCity1) {
+        this.idCity1 = idCity1;
     }
 
-    public String getCode() {
-        return code;
+    public Integer getIdCity2() {
+        return idCity2;
     }
 
-    public void setCode(String code) {
-        this.code = code;
-    }
-
-    public Integer getIdContinent() {
-        return idContinent;
-    }
-
-    public void setIdContinent(Integer idContinent) {
-        this.idContinent = idContinent;
+    public void setIdCity2(Integer idCity2) {
+        this.idCity2 = idCity2;
     }
 
     @Override
@@ -85,10 +74,10 @@ public class Country implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Country)) {
+        if (!(object instanceof Sister)) {
             return false;
         }
-        Country other = (Country) object;
+        Sister other = (Sister) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -97,7 +86,7 @@ public class Country implements Serializable {
 
     @Override
     public String toString() {
-        return "lab9.laborator9.entities.Country[ id=" + id + " ]";
+        return "lab9.laborator9.entities.Sister[ id=" + id + " ]";
     }
 
 }
