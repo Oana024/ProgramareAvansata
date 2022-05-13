@@ -16,7 +16,7 @@ public class Create2DMap extends JFrame {
         setTitle("Drawing Cities");
         setSize(sizeX, sizeY);
         setVisible(true);
-        getContentPane().setBackground(Color.black);
+       // getContentPane().setBackground(Color.black);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
 
@@ -49,14 +49,14 @@ public class Create2DMap extends JFrame {
     @Override
     public void paint(Graphics graphics) {
 
-        graphics.setColor(Color.black);
-        graphics.fillRect(0, 0, sizeX, sizeX);
+       // graphics.setColor(Color.black);
+       // graphics.fillRect(0, 0, sizeX, sizeX);
 
         for (City city : cities) {
             int x = getLongitude((float) xAxisProjection(city.getLongitude()));
             int y = getLatitude((float) yAxisProjection(city.getLatitude()));
 
-            graphics.setColor(Color.white);
+            graphics.setColor(Color.black);
             graphics.fillOval(x, y, 4, 4);
         }
     }

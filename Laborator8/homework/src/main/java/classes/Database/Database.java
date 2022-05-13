@@ -9,36 +9,33 @@ import java.sql.SQLException;
 import java.util.Properties;
 
 public class Database {
-    static HikariDataSource ds = new HikariDataSource();
-    private static final String URL = "jdbc:postgresql://localhost:5432/";
+    private static final String URL =
+            "jdbc:postgresql://localhost:5432/";
     private static final String USER = "postgres";
     private static final String PASSWORD = "password";
     private static Connection connection = null;
-
-    public static void createConnection() {
-        ds.setJdbcUrl(URL);
-        ds.setUsername(USER);
-        ds.setPassword(PASSWORD);
-        ds.addDataSourceProperty("cachePrepStmts", "true");
-        ds.addDataSourceProperty("prepStmtCacheSize", "250");
-        ds.addDataSourceProperty("prepStmtCacheSqlLimit", "2048");
-        ds.setAutoCommit(false);
-
-        try {
-            connection = ds.getConnection();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
 
     private Database() {
     }
 
     public static Connection getConnection() {
-        if (connection == null) {
+        if(connection == null) {
             createConnection();
         }
         return connection;
+    }
+
+    private static void createConnection() {
+        try {
+
+            Properties props = new Properties();
+            props.setProperty("user",USER);
+            props.setProperty("password",PASSWORD);
+            connection = DriverManager.getConnection(URL, props);
+            connection.setAutoCommit(false);
+        } catch (SQLException e) {
+            System.err.println(e);
+        }
     }
 
     public static void closeConnection() {
